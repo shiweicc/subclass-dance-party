@@ -1,19 +1,16 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps) {
+var YDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.addClass('blinky');
-
-  // this.changeColor();
 };
 
-BlinkyDancer.prototype = Object.create(Dancer.prototype);
+YDancer.prototype = Object.create(Dancer.prototype);
 
-BlinkyDancer.prototype.constructor = BlinkyDancer;
+YDancer.prototype.constructor = YDancer;
 
 
 // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
 // call the old version of step at the beginning of any call to this new version of step
 
-BlinkyDancer.prototype.step = function() {
+YDancer.prototype.step = function() {
   // to invoke the step method from dancer superclass
   Dancer.prototype.step.call(this);
 
@@ -24,6 +21,3 @@ BlinkyDancer.prototype.step = function() {
   this.$node.toggle();
 };
 
-// BlinkyDancer.prototype.changeColor = function() {
-//   this.$node.css('border-color', 'yellow');
-// };
