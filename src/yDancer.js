@@ -1,5 +1,6 @@
 var YDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
+  this.$node.addClass('yDancer');
 };
 
 YDancer.prototype = Object.create(Dancer.prototype);
@@ -20,4 +21,8 @@ YDancer.prototype.step = function() {
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.toggle();
 };
+
+// BlinkyDancer.prototype.changeColor = function() {
+//   this.$node.css('border-color', 'yellow');
+// };
 

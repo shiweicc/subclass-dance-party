@@ -1,5 +1,7 @@
 var XDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
+  this.$node.addClass('xDancer');
+
 };
 
 XDancer.prototype = Object.create(Dancer.prototype);
@@ -21,3 +23,6 @@ XDancer.prototype.step = function() {
   this.$node.toggle();
 };
 
+// BlinkyDancer.prototype.changeColor = function() {
+//   this.$node.css('border-color', 'yellow');
+// };
