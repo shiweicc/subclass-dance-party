@@ -1,20 +1,17 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
-
   Dancer.call(this, top, left, timeBetweenSteps);
-  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-  // so we must keep a copy of the old version of this function
-
-  //this.oldStep = this.step;
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
+
 BlinkyDancer.prototype.constructor = BlinkyDancer;
 
+
+// we plan to overwrite the step function below, but we still want the superclass step behavior to work,
+// call the old version of step at the beginning of any call to this new version of step
+
 BlinkyDancer.prototype.step = function() {
-  // call the old version of step at the beginning of any call to this new version of step
-  // this.oldStep();
-  // to invoke the step method from dancer
-  //console.log(this);
+  // to invoke the step method from dancer superclass
   Dancer.prototype.step.call(this);
 
 
@@ -23,3 +20,4 @@ BlinkyDancer.prototype.step = function() {
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.toggle();
 };
+
