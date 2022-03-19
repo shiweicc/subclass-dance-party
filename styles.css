@@ -31,3 +31,33 @@ body, a:link, a:visited, a:active{
   border-radius:20px;
   position:absolute;
 }
+.diamond{
+  border:20px solid blue;
+  border-radius:20px;
+  position:absolute;
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -25px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 70px 50px 0 50px;
+}
+.pacman{
+  border:20px solid blue;
+  border-radius:20px;
+  position:absolute;
+
+  width: 0px;
+  height: 0px;
+  border-right: 60px solid transparent;
+  border-top: 60px solid red;
+  border-left: 60px solid red;
+  border-bottom: 60px solid red;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
