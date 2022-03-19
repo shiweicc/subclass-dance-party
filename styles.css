@@ -79,6 +79,7 @@ body, a:link, a:visited, a:active{
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
+
 .pacman:hover{
   border-right: 30px solid transparent;
   border-top: 30px solid red;
