@@ -14,6 +14,10 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.title, .lineUpButton{
+  padding:5px 12px;
+  float:right;
+}
 .topbar{
   height:32px;
   background-color: #555;
@@ -26,7 +30,6 @@ body, a:link, a:visited, a:active{
   border-radius:20px;
   position:absolute;
   border-color: red;
-
 }
 .dancer:hover{
   border-color: red;
@@ -35,6 +38,14 @@ body, a:link, a:visited, a:active{
   border:30px solid orange;
   border-radius:30px;
   position:absolute;
+  animation-name: stretch;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }
 .diamond{
   border:20px solid lightblue;
@@ -49,15 +60,14 @@ body, a:link, a:visited, a:active{
   border-style: solid;
   border-color: lightblue transparent transparent transparent;
   border-width: 50px 30px 0 30px;
+  animation: rotation 4s;
+  animation-iteration-count: infinite;
 }
 .diamond:hover{
   border-color: red transparent transparent transparent;
 }
 .pacman{
-  border:20px solid yellow;
-  border-radius:20px;
   position:absolute;
-
   width: 0px;
   height: 0px;
   border-right: 30px solid transparent;
@@ -68,14 +78,32 @@ body, a:link, a:visited, a:active{
   border-top-right-radius: 30px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-
-  animation-duration: 3s;
-  animation-name: rotate;
-  animation-iteration-count: infinite;
 }
 .pacman:hover{
   border-right: 30px solid transparent;
   border-top: 30px solid red;
   border-left: 30px solid red;
   border-bottom: 30px solid red;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes stretch {
+  0% {
+    transform: scale(.2);
+    background-color: red;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: orange;
+  }
+  100% {
+    transform: scale(1.0);
+    background-color: yellow;
+  }
 }
