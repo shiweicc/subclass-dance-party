@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image: url("/images/pacman.jpeg");
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -25,39 +26,56 @@ body, a:link, a:visited, a:active{
   border-radius:20px;
   position:absolute;
   border-color: red;
+
+}
+.dancer:hover{
+  border-color: red;
 }
 .blinky{
-  border:20px solid blue;
-  border-radius:20px;
+  border:30px solid orange;
+  border-radius:30px;
   position:absolute;
 }
 .diamond{
-  border:20px solid blue;
+  border:20px solid lightblue;
   border-radius:20px;
   position:absolute;
   content: "";
   position: absolute;
-  top: 25px;
-  left: -25px;
+  top: 15px;
+  left: -15px;
   width: 0;
   height: 0;
   border-style: solid;
+  border-color: lightblue transparent transparent transparent;
+  border-width: 50px 30px 0 30px;
+}
+.diamond:hover{
   border-color: red transparent transparent transparent;
-  border-width: 70px 50px 0 50px;
 }
 .pacman{
-  border:20px solid blue;
+  border:20px solid yellow;
   border-radius:20px;
   position:absolute;
 
   width: 0px;
   height: 0px;
-  border-right: 60px solid transparent;
-  border-top: 60px solid red;
-  border-left: 60px solid red;
-  border-bottom: 60px solid red;
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
-  border-bottom-left-radius: 60px;
-  border-bottom-right-radius: 60px;
+  border-right: 30px solid transparent;
+  border-top: 30px solid yellow;
+  border-left: 30px solid yellow;
+  border-bottom: 30px solid yellow;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  animation-duration: 3s;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+}
+.pacman:hover{
+  border-right: 30px solid transparent;
+  border-top: 30px solid red;
+  border-left: 30px solid red;
+  border-bottom: 30px solid red;
 }
