@@ -28,6 +28,12 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
+
+    // Try to trigger click event on specific dancer
+    // dancer.$node.on('click', function(event) {
+    //   console.log(event);
+    //   $('.dancer').css('color', 'white');
+    // });
   });
 
   $('.lineUpButton').on('click', function(event) {
@@ -38,4 +44,63 @@ $(document).ready(function() {
       top += 80;
     }
   });
+
+  $('.interactionButton').on('click', function(event) {
+    var allDancer = window.dancers.slice();
+    for (var i = 0; i < window.dancers.length; i++) {
+      var x1 = window.dancers[i].left;
+      var y1 = window.dancers[i].top;
+      var smallestDistance = 0;
+      var x2, y2, currentDistance, tempWindowDancerTop, tempWindowDancerLeft, tempClosestDancerTop, tempClosestDancerLeft, closestDancer;
+
+      var otherDancer = allDancer.slice();
+      otherDancer.splice(i, 1);
+      // var closestDancer = window.dancers[i];
+      for (var j = 0; j < otherDancer.length; j++) {
+        x2 = otherDancer[j].left;
+        y2 = otherDancer[j].top;
+        currentDistance = Number(Math.sqrt(((x1 - x2) ^ 2 ) + ((y1 - y2) ^ 2)));
+        if (smallestDistance === 0 || currentDistance < smallestDistance) {
+          smallestDistance = currentDistance;
+          closestDancer = otherDancer[j];
+        }
+      }
+      tempWindowDancerTop = window.dancers[i].top;
+      tempWindowDancerLeft = window.dancers[i].left;
+      tempClosestDancerTop = closestDancer.top;
+      tempClosestDancerLeft = closestDancer.left;
+      //debugger;
+      Dancer.prototype.setPosition.call(window.dancers[i], tempClosestDancerTop, tempClosestDancerLeft);
+      Dancer.prototype.setPosition.call(closestDancer, tempWindowDancerTop, tempWindowDancerLeft);
+    }
+  });
+
+  // $('.interactionButton').on('click', function(event) {
+  //   var allDancer = window.dancers.slice();
+
+  //   var x1 = window.dancers[0].left;
+  //   var y1 = window.dancers[0].top;
+  //   var smallestDistance = 0;
+  //   var x2, y2, currentDistance, tempWindowDancerTop, tempWindowDancerLeft, tempClosestDancerTop, tempClosestDancerLeft, closestDancer;
+
+  //   var otherDancer = allDancer.slice();
+  //   otherDancer.splice(0, 1);
+  //   // var closestDancer = window.dancers[i];
+  //   for (var j = 0; j < otherDancer.length; j++) {
+  //     x2 = otherDancer[j].left;
+  //     y2 = otherDancer[j].top;
+  //     currentDistance = Number(Math.sqrt(((x1 - x2) ^ 2 ) + ((y1 - y2) ^ 2)));
+  //     if (smallestDistance === 0 || currentDistance < smallestDistance) {
+  //       smallestDistance = currentDistance;
+  //       closestDancer = otherDancer[j];
+  //     }
+  //   }
+  //   tempWindowDancerTop = window.dancers[0].top;
+  //   tempWindowDancerLeft = window.dancers[0].left;
+  //   tempClosestDancerTop = closestDancer.top;
+  //   tempClosestDancerLeft = closestDancer.left;
+  //   //debugger;
+  //   Dancer.prototype.setPosition.call(window.dancers[0], tempClosestDancerTop, tempClosestDancerLeft);
+  //   Dancer.prototype.setPosition.call(closestDancer, tempWindowDancerTop, tempWindowDancerLeft);
+  // });
 });

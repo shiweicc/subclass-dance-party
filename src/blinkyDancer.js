@@ -1,7 +1,7 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('blinky');
-
+  // this.centerPosition();
   // this.changeColor();
 };
 
@@ -26,4 +26,11 @@ BlinkyDancer.prototype.step = function() {
 
 // BlinkyDancer.prototype.changeColor = function() {
 //   this.$node.css('border-color', 'yellow');
+// };
+
+// BlinkyDancer.prototype.centerPosition = function() {
+//   var dancerWidth = $('.blinky').width();
+//   var dancerHeight = $('.blinky').height();
+//   console.log(dancerHeight);
+//   console.log(dancerWidth);
 // };
