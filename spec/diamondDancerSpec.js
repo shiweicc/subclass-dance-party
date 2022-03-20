@@ -12,10 +12,10 @@ describe('diamondDancer', function() {
     expect(diamondDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a step function that makes its node blink', function() {
-    sinon.spy(diamondDancer.$node, 'toggle');
-    diamondDancer.step();
-    expect(diamondDancer.$node.toggle.called).to.be.true;
+  it('should have a setRotation function that makes its node rotate', function() {
+    sinon.spy(diamondDancer, 'setRotation');
+    diamondDancer.setRotation();
+    expect(diamondDancer.setRotation.called).to.be.true;
   });
 
   describe('dance', function() {
